@@ -1,33 +1,33 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-
-type Data = {
-  name : string
-}
 
 export default function Home() {
 
-  const [name, setName] = useState('initial')
-  const [data, setData] = useState<Data>({name: ""})
+  const [formData, setFormData] = useState<Object>({})
+  const [data, setData] = useState<Array<Object>>([{}])
 
-  async function add(){
+  async function getData() {
+    const response = await axios.get("/api/products/get")
+    setData(response.data.data)
+  }
 
-    const response = await axios.post("/api/products/add",{
-      name : name
+  async function add(event: any) {
+    event.preventDefault();
+    await axios.post("/api/products/add", formData)
+  }
+
+  function handleChange(event: any) {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value
     })
-
-    const res = response.data
-    setData(res) 
-    
   }
 
   return (
-    <main className="flex p-24">
-      <input type="text" onChange={(e)=>setName(e.target.value)} className='border-[1px] border-black'/>
-      <button onClick={add}>Send</button>
-      { data?.name }
+    <main>
+      <div></div>
     </main>
   )
 }

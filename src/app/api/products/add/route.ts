@@ -1,21 +1,17 @@
 
 import { NextResponse } from "next/server";
 import connectMongo from "@/lib/MongoDb";
-import mongoose from "mongoose";
+import Products from "@/models/products/model";
 
 export async function POST(req:Request){
+    const data  = await req.json()
 
     await connectMongo()
+    console.log(data);
 
-    const name  = await req.json()
+    const res = await Products.create(data)
+    console.log(res);
     
-    try{
-        console.log("Success");
-
-    }catch(err){
-        console.log("Error : ",err);
-    }
-
-    return NextResponse.json({...name, type : "POST"})
+    return NextResponse.json({ type : "POST"})
     
 }
