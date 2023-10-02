@@ -8,12 +8,22 @@ const ProductSchema = new Schema(
         product_id: Number,
         category: String,
         price: Number,
+        quantity: Number,
         brand : String,
         offer: String,
         discount: Number,
         colour : String,
         description: String,
         image: String,
+        rating: {
+            one: Number,
+            two: Number,
+            three: Number,
+            four: Number,
+            five: Number,
+            total: Number,
+        },
+        orders: Array,
     },{
         timestamps : true
     }

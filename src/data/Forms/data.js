@@ -1,6 +1,15 @@
 
+export const CategoryFields = [
+    {
+        placeholder : "Enter Category Name",
+        type : "text",
+        id : "category_name",
+        lable : "Category Name",
+        required : true
+    },
+]
 
-export const AdminData = [
+export const ProductFields = [
     {
         placeholder : "Enter Product Name",
         type : "text",
@@ -18,9 +27,10 @@ export const AdminData = [
     },
     {
         placeholder : "Enter Product Category",
-        type : "text",
+        type : "select",
         id : "category",
         lable : "Product Category",
+        list : "category_list",
         required : true
     },
     {
@@ -49,7 +59,7 @@ export const AdminData = [
         placeholder : "Enter Product Description",
         type : "text",
         id : "description",
-        lable : "Product Desction",
+        lable : "Product Description",
         required : true
     },
     {
@@ -72,6 +82,6 @@ export const AdminData = [
         type : "file",
         id : "image",
         lable : "Upload Product Image",
-        required : true
+        required : false
     },
 ]

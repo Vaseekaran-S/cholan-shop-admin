@@ -3,26 +3,26 @@ export const filter = [
     {
         id : "category",
         options : [
-            "electronics",
-            "cloths",
-            "glocery",
-            "jewellery",
+            "Electronics",
+            "Cloths",
+            "Glocery",
+            "Jewellery",
         ]
     },
     {
         id : "gender",
         options : [
-            "men",
-            "women",
-            "kids",
+            "Men",
+            "Women",
+            "Kids",
         ]
     },
     {
         id : "price",
         options : [
-            "1000<",
-            "5000<",
-            "10000<",
+            "1000",
+            "5000",
+            "10000",
             "others",
         ]
     },
