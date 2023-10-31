@@ -6,19 +6,19 @@ import Image from 'next/image'
 
 function Header() {
   return (
-    <div className='h-[80px] w-full bg-black px-4 flex items-center justify-between'>
-      <a href="/">
-        <Image src="/images/logo/LogoDark.png" alt="logo" width={150} height={100}/>
-      </a>
-      <div>
+    <div className='h-[80px] w-full bg-black px-4'>
+      <div className='flex items-center justify-between container mx-auto'>
+        <a href="/">
+          <Image src="/images/logo/LogoDark.png" alt="logo" width={150} height={100} />
+        </a>
         <ul className='sm:flex'>
-        { navBar.map((e,i)=>{
-            return(
-                <li className='text-white p-2' key={i}>
-                    <Link href={e.href}>{e.name}</Link>
-                </li>
+          {navBar.map((e, i) => {
+            return (
+              <li className='text-white p-2' key={i}>
+                <Link href={e.href}>{e.name}</Link>
+              </li>
             )
-        }) }
+          })}
         </ul>
       </div>
     </div>

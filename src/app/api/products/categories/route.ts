@@ -5,17 +5,23 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     await connectMongo()
-    const data = await Category.find()
-    return NextResponse.json({ data })
+    const data = await Category.find()    
+    return NextResponse.json(data)
 }
 
 
 export async function POST(req: Request) {
-    const info = await req.json()
+    let data = await req.json()
+    console.log(data);
     await connectMongo()
-
-    const data = await Category.create(info)
-    return NextResponse.json({ data })
+    data = {
+        ...data,
+        total_products: 0,
+        products: []
+    }
+    console.log(data);
+    const response = await Category.create(data)
+    return NextResponse.json({ response })
 }
 
 

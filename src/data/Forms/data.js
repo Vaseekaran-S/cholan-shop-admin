@@ -82,6 +82,6 @@ export const ProductFields = [
         type : "file",
         id : "image",
         lable : "Upload Product Image",
-        required : false
+        required : true
     },
 ]

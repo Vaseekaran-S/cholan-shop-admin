@@ -16,7 +16,7 @@ function Page() {
     const [isLoading, setIsLoading] = useState(true)
 
     async function getProducts() {
-        const response = await axios.get("/api/products/get")
+        const response = await axios.get("/api/products")
         setProducts(response.data.data)
         setFilterProducts(response.data.data)
         setIsLoading(false)
@@ -63,7 +63,7 @@ function Page() {
                         })}
                     </div>
                     <div className='flex items-center'>
-                        <a href="/category/add">
+                        <a href="/products/categories">
                             <p className='text-sm font-bold mr-2'>Categories</p>
                         </a>
                         <a href="/products/add" className='py-1 px-3 bg-blue-600 rounded text-white'>Product +</a>
@@ -74,7 +74,7 @@ function Page() {
                 <div className='p-5 grid grid-cols-12 gap-4'>
                     {isLoading ? (
                         <>
-                            {dummy  .map((e, i) => {
+                            {dummy.map((e, i) => {
                                 return (
                                     <ProductCardSkeliton key={i}/>
                                 )
