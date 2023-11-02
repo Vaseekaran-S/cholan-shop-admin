@@ -3,26 +3,23 @@ import mongoose, { Schema } from "mongoose";
 
 const ProductSchema = new Schema(
     {
-        name: String,
+        product_name: String,
+        product_title: String,
         product_id: Number,
-        category: String,
+        category: mongoose.SchemaTypes.ObjectId,
+        sub_category: String,
+        brand: mongoose.SchemaTypes.ObjectId,
+        model: String,
         price: Number,
         quantity: Number,
-        brand : String,
         offer: String,
         discount: Number,
         colour : String,
         description: String,
-        image: String,
-        rating: {
-            one: Number,
-            two: Number,
-            three: Number,
-            four: Number,
-            five: Number,
-            total: Number,
-        },
-        orders: Array,
+        images: [String],
+        rating: [Number],
+        total_rating: Number,
+        orders: [mongoose.SchemaTypes.ObjectId],
     },{
         timestamps : true
     }
