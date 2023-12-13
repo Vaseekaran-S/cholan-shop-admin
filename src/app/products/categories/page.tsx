@@ -110,7 +110,7 @@ export default function Page() {
                     <div className="grid grid-cols-6 gap-3">
                     { subCategories.map((e,i)=>{
                         return(
-                            <div className="md:col-span-2 sm:col-span-3 col-span-6 flex items-center mx-2 relative">
+                            <div key={i} className="md:col-span-2 sm:col-span-3 col-span-6 flex items-center mx-2 relative">
                                 <h1 className="absolute left-2">{i+1}</h1>
                                 <InputFields key={i} value={e} field="input" placeholder="Enter Sub Category*" onChange={(e:any)=>subCategoriesEvent(e,i)} tailwind="w-full mb-0 mx-1" field_style="px-6"/>
                                 <span onClick={()=>deleteSubCategories(i)} className="absolute right-2 font-bold cursor-pointer text-red-500 rounded-full">x</span>
@@ -125,9 +125,8 @@ export default function Page() {
             <div className="mt-5 pt-5 grid grid-cols-12 mx-10">
                 {categories.map((e,i) => {
                     return (
-                        <div className="col-span-2">
-                            
-                        <PopupModal buttonLabel={e.category_name} modalContent={e.category_description}/>
+                        <div key={i} className="col-span-2">
+                            <PopupModal buttonLabel={e.category_name} modalContent={e.category_description}/>
                         </div>
                     )
                 })}

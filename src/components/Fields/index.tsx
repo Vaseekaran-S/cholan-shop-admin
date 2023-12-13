@@ -19,8 +19,8 @@ const Select = ({ styleType, field_style, ...attributes }: any) => {
     return (
         <select {...attributes} className={`${style} ${field_style}`}>
             <option selected disabled value="">Select</option>
-            { attributes.options.map((e:any)=>{
-                return <option value={e}>{e}</option>
+            { attributes.options.map((e:any,i:number)=>{
+                return <option value={e} key={i}>{e}</option>
             }) }
         </select>
     )
